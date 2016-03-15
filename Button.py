@@ -1,12 +1,16 @@
 import time
-import pyupm_grove as grove
+import grovepi
 
-# Create the button object using GPIO pin 0
-button = grove.GroveButton(0)
+# Connect the Grove Button to digital port D3
+# SIG,NC,VCC,GND
+button = 3
 
-# Read the input and print, waiting one second between readings
-while 1:
-    print button.name(), ' value is ', button.value()
-    time.sleep(1)
+grovepi.pinMode(button,"INPUT")
 
-# Delete the button object
+while True:
+    try:
+        print grovepi.digitalRead(button)
+        time.sleep(.5)
+
+    except IOError:
+        print "Error"
