@@ -14,3 +14,5 @@ for i in range (0,10):
     time.sleep(1)
     led.off()
     time.sleep(1)
+    
+    #Agregado
