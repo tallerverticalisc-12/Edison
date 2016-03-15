@@ -10,4 +10,3 @@ while 1:
     time.sleep(1)
 
 # Delete the button object
-del button
