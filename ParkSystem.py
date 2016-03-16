@@ -20,6 +20,5 @@ while True:
         dispPlaces -= 1
     if button.value() == 1:
         dispPlaces += 1
-    del lcdDisplay
     
 
