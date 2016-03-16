@@ -19,8 +19,7 @@ while True:
         dispPlaces -= 1
     if button.value() == 1:
         dispPlaces += 1
-    
-    time.sleep(5)
+    time.sleep(1)
     lcdDisplay.clear()
     
 
