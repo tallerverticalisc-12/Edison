@@ -16,6 +16,7 @@ dispPlaces = 20
 def updateInfo():
     s = requests.post('http://45.40.137.37:88/sensor', {"Places available":str(dispPlaces)})
     time.sleep(5)
+    print (s.text)
     
 def parkInfo():
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
