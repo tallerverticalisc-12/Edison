@@ -19,7 +19,7 @@ dispPlaces = 20
 
 def updateInfo(info):
     global dispPlaces
-    s = requests.post('http://45.40.137.37:88/sensor', {zone:1,parkID:1,status:info})
+    s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
     print (s.text)
     
 def parkInfo():
