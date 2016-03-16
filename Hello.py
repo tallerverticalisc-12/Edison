@@ -2,6 +2,8 @@ from flask import Flask
 import json
 import requests
 
+app = Flask(__name__)
+
 @app.route('/sensor')
 
 def hello():
