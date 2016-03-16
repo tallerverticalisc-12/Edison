@@ -16,8 +16,6 @@ dispPlaces = 20
 def updateInfo():
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"Places available":str(dispPlaces)})
-    time.sleep(5)
-    print (s.text)
     
 def parkInfo():
     global dispPlaces
@@ -25,15 +23,14 @@ def parkInfo():
     if touchSensor.isPressed():
         if dispPlaces > 0:
            dispPlaces -= 1
+           updateInfo()
     if button.value() == 1:
         if dispPlaces < 20:
            dispPlaces += 1
+           updateInfo()
     time.sleep(0.3)
     lcdDisplay.clear()
-    
-
 while True:
     parkInfo()
-    updateInfo()
     
 
