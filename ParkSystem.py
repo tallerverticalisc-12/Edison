@@ -19,7 +19,7 @@ while True:
         dispPlaces -= 1
     if button.value() == 1:
         dispPlaces += 1
-    lcdDisplay.write('Disponible parks: ' + dispPlaces)
+    lcdDisplay.write('Disponible parks: ' + str(dispPlaces)
     
     time.sleep(10)
 
