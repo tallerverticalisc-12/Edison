@@ -19,7 +19,7 @@ dispPlaces = 20
 
 def updateInfo(info):
     global dispPlaces
-    s = requests.post('http://45.40.137.37:88/sensor', {info:"Zone 1"})
+    s = requests.post('http://45.40.137.37:88/sensor', {zone:1,parkID:1,status:info})
     print (s.text)
     
 def parkInfo():
@@ -34,7 +34,7 @@ def parkInfo():
             if dispPlaces > 0:
                 dispPlaces -= 1
                 touchCounter = 0
-                updateInfo("A place has been taken in")
+                updateInfo(1)
                 
     if button.value() == 1:
         buttonCounter += 1
@@ -42,7 +42,7 @@ def parkInfo():
             if dispPlaces < 20:
                 dispPlaces += 1
                 buttonCounter = 0
-                updateInfo("A place has been disoccupied in")
+                updateInfo(0)
     time.sleep(0.1)
     lcdDisplay.clear()
 
