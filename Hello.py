@@ -1,10 +1,8 @@
-from flask import Flask
-app = Flask(__name__)
+import json
+url = 'http://45.40.137.37.88/sensor'
+data = {'a': 10, 'b': [{'c': True, 'd': False}, None]}
+headers = {'Content-Type': 'application/json'}
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+r = requests.post(url, data=json.dumps(data), headers=headers)
 
-if __name__ == '__main__': 
-    app.debug = True
-    app.run(host="127.0.0.1", port=5000)
+print json.dumps(r.json(), indent=4)
