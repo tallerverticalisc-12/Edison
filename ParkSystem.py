@@ -21,5 +21,5 @@ while True:
         dispPlaces += 1
     lcdDisplay.write('Disponible parks: ' + dispPlaces)
     
-    time.sleep(1)
+    time.sleep(10)
 
