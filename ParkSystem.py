@@ -14,20 +14,20 @@ lcdDisplay.setCursor(0,0)
 touchCounter = 0
 buttonCounter = 0
 
-dispPlaces = requests.get('http://45.40.137.37:88/available/1/1');
+dispPlaces = 20
 
 def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
     print (s.text)
-    print (dispPlaces.text)
+    print dispPlaces
     
 def parkInfo():
     global dispPlaces
     global touchCounter
     global buttonCounter
     
-    lcdDisplay.write('Disp parks: ' + str(dispPlaces.text))
+    lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if touchSensor.isPressed():
         touchCounter += 1
         if touchCounter == 2:
