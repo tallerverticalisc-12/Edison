@@ -11,7 +11,6 @@ button = grove.GroveButton(3)
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
 
-
 dispPlaces = 20
 
 while True:   
@@ -22,5 +21,6 @@ while True:
         dispPlaces += 1
     
     time.sleep(5)
+    lcdDisplay.clear()
     
 
