@@ -20,8 +20,7 @@ def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
     print (s.text)
-    print dispPlaces
-    print "Disponible places: ", dispPlaces
+    print (dispPlaces.text)
     
 def parkInfo():
     global dispPlaces
@@ -48,7 +47,6 @@ def parkInfo():
     lcdDisplay.clear()
 
 while True:
-    print (dispPlaces.text)
     parkInfo()
     
 
