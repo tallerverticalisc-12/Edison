@@ -17,7 +17,7 @@ buttonCounter = 0
 dispPlaces = 20
 
 
-def updateInfo(str info):
+def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {info:"Zone 1"}
     print (s.text)
