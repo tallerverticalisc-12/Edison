@@ -12,7 +12,7 @@ lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
 
 
-int dispPlaces = 20
+dispPlaces = 20
 
 while True:   
     if touchSensor.isPresses()
