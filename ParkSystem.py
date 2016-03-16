@@ -48,6 +48,7 @@ def parkInfo():
     lcdDisplay.clear()
 
 while True:
+    print dispPlaces
     parkInfo()
     
 
