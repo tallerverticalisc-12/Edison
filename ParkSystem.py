@@ -23,10 +23,10 @@ def parkInfo():
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if touchSensor.isPressed():
         if dispPlaces > 0:
-            global dispPlaces -= 1
+            global dispPlaces = dispPlaces - 1
     if button.value() == 1:
         if dispPlaces < 20:
-            global dispPlaces += 1
+            global dispPlaces = displaces + 1
     time.sleep(0.3)
     lcdDisplay.clear()
     
