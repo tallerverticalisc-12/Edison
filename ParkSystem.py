@@ -14,13 +14,14 @@ lcdDisplay.setCursor(0,0)
 touchCounter = 0
 buttonCounter = 0
 
-dispPlaces = 20
-
+dispPlaces = requests.get('http://45.40.137.37:88/available/1/1');
 
 def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
     print (s.text)
+    print dispPlaces
+    print "Disponible places: ", dispPlaces
     
 def parkInfo():
     global dispPlaces
