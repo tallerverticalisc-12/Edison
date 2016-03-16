@@ -14,7 +14,7 @@ lcdDisplay.setCursor(0,0)
 touchCounter = 0
 buttonCounter = 0
 
-dispPlaces = requests.get('http://45.40.137.37:88/available/1/1');
+dispPlaces = requests.get('http://45.40.137.37:88/availables/1');
 
 def updateInfo(info):
     global dispPlaces
