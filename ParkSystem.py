@@ -21,4 +21,6 @@ while True:
     if button.value() == 1:
         dispPlaces += 1
     
+    time.sleep(5)
+    
 
