@@ -1,4 +1,4 @@
 import requests
 
-r = requests.get('someurl')
+r = requests.get('https://federacionhemofilia.azurewebsites.net')
 print r.json() 
