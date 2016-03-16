@@ -1,10 +1,11 @@
 import json
 import requests
 
-url = 'http://45.40.137.37.88/sensor'
-data = {'a': 10, 'b': [{'c': True, 'd': False}, None]}
-headers = {'Content-Type': 'application/json'}
+@app.route('/sensor')
 
-r = requests.post(url, data=json.dumps(data), headers=headers)
-
-print json.dumps(r.json(), indent=4)
+if __name__ == '__main__':
+	app.run( 
+		host="http://45.40.137.37",
+		port=int("88")
+	)
+return "Hello World"
