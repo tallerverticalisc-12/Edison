@@ -1,9 +1,9 @@
 from flask import Flask
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/sensor")
 def hello():
     return "Hello World!"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port="45.40.137.37", port=88)
