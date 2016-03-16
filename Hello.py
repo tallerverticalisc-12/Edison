@@ -1,6 +1,6 @@
 import requests
 import json
 
-r = requests.post('http://45.40.137.37:88/sensor', data = {'key':'value'})
-r = requests.get('http://45.40.137.37:88/sensor')
+r = requests.post('https://api.github.com/events', data = {'key':'value'})
+r = requests.get('https://api.github.com/events')
 r.json()
