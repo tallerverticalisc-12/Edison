@@ -26,6 +26,8 @@ def updateInfo():
     
 def parkInfo():
     global dispPlaces
+    global touchCounter
+    global buttonCounter
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if touchSensor.isPressed():
         touchCounter += 1
