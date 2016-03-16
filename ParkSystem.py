@@ -15,10 +15,11 @@ lcdDisplay.setCursor(0,0)
 dispPlaces = 20
 
 while True:   
+    lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if touchSensor.isPressed():
         dispPlaces -= 1
     if button.value() == 1:
         dispPlaces += 1
-    lcdDisplay.write('Disp parks: ' + str(dispPlaces))
-    time.sleep(10)
+    del lcdDisplay
+    
 
