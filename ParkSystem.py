@@ -34,7 +34,7 @@ def parkInfo():
             if dispPlaces > 0:
                 dispPlaces -= 1
                 touchCounter = 0
-                updateInfo(1)
+                updateInfo(0)
                 
     if button.value() == 1:
         buttonCounter += 1
@@ -42,7 +42,7 @@ def parkInfo():
             if dispPlaces < 20:
                 dispPlaces += 1
                 buttonCounter = 0
-                updateInfo(0)
+                updateInfo(1)
     time.sleep(0.1)
     lcdDisplay.clear()
 
