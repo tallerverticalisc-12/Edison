@@ -6,8 +6,8 @@ myLcd.setCursor(0,0)
 # RGB Blue
 #myLcd.setColor(53, 39, 249)
 # RGB Red
-myLcd.setColor(255, 0, 0)
-myLcd.write('Hello World')
+myLcd.setColor(255, 100, 50)
+myLcd.write('Fierro')
 myLcd.setCursor(1,2)
-myLcd.write('Hello World')
+myLcd.write('Pariente')
 time.sleep(10);
