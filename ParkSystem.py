@@ -11,6 +11,9 @@ button = grove.GroveButton(3)
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
 
+touchCounter = 0
+buttonCounter = 0
+
 dispPlaces = 20
 s = requests.post('http://45.40.137.37:88/sensor', {"Places available":str(dispPlaces)})
 print (s.text)
@@ -25,13 +28,20 @@ def parkInfo():
     global dispPlaces
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if touchSensor.isPressed():
-        if dispPlaces > 0:
-           dispPlaces -= 1
-           updateInfo()
+        touchCounter += 1
+        if touchCounter == 2:
+            if dispPlaces > 0:
+                dispPlaces -= 1
+                touchCounter = 0
+                updateInfo()
+                
     if button.value() == 1:
-        if dispPlaces < 20:
-           dispPlaces += 1
-           updateInfo()
+        buttonCounter += 1
+        if buttonCounter == 2:
+            if dispPlaces < 20:
+                dispPlaces += 1
+                buttonCounter = 0
+                updateInfo()
     time.sleep(0.3)
     lcdDisplay.clear()
 
