@@ -31,7 +31,7 @@ def parkInfo():
     
 
 while True:
-    updateInfo()
     parkInfo()
+    updateInfo()
     
 
