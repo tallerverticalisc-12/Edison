@@ -13,7 +13,11 @@ lcdDisplay.setCursor(0,0)
 
 dispPlaces = 20
 
-while True:   
+def updateInfo():
+    s = requests.post('http://45.40.137.37:88/sensor', {"Places available":str(dispPlaces)})
+    time.sleep(5)
+    
+def parkInfo():
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if touchSensor.isPressed():
         if dispPlaces > 0:
@@ -23,5 +27,10 @@ while True:
             dispPlaces += 1
     time.sleep(0.3)
     lcdDisplay.clear()
+    
+
+while True:
+    updateInfo()
+    parkInfo()
     
 
