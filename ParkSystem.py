@@ -12,10 +12,14 @@ lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
 
 dispPlaces = 20
+s = requests.post('http://45.40.137.37:88/sensor', {"Places available":str(dispPlaces)})
+print (s.text)
+
 
 def updateInfo():
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"Places available":str(dispPlaces)})
+    print (s.text)
     
 def parkInfo():
     global dispPlaces
