@@ -7,10 +7,10 @@ camera = cv2.VideoCapture(camera_port)
 
 def getImage():
      retval, im = camera.read()
-    return im
+     return im
     
 for i in xrange(ramp_frames):
- temp = get_image()
+    temp = get_image()
 print("Taking image...")
 # Take the actual image we want to keep
 camera_capture = get_image()
