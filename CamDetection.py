@@ -14,7 +14,7 @@ for i in xrange(ramp_frames):
 print("Taking image...")
 # Take the actual image we want to keep
 camera_capture = getImage()
-file = "samosunaz/Documents/Tec/4to Semestre/Taller Vertical/Edison/Cam/testImage.png"
+file = "home/root/oneEdison/Edison/Cam/testPic.png"
 # A nice feature of the imwrite method is that it will automatically choose the
 # correct format based on the file extension you provide. Convenient!
 cv2.imwrite(file, camera_capture)
