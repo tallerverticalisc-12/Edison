@@ -1,5 +1,3 @@
-from import import image
-from pytesser.pytesser import *
 import cv2
 
 camera_port = 0
