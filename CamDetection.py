@@ -10,10 +10,10 @@ def getImage():
      return im
     
 for i in xrange(ramp_frames):
-    temp = get_image()
+    temp = getImage()
 print("Taking image...")
 # Take the actual image we want to keep
-camera_capture = get_image()
+camera_capture = getImage()
 file = "samosunaz/Documents/Tec/4to Semestre/Taller Vertical/Edison/Cam/testImage.png"
 # A nice feature of the imwrite method is that it will automatically choose the
 # correct format based on the file extension you provide. Convenient!
