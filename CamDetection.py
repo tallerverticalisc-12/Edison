@@ -1,26 +1,20 @@
+import numpy as np
 import cv2
 
-camera_port = 0
-ramp_frames = 30
+cap = cv2.VideoCapture(0)
 
-camera = cv2.VideoCapture(camera_port)
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
 
-def getImage():
-     retval, im = camera.read()
-     return im
-    
-for i in xrange(ramp_frames):
-    temp = getImage()
-print("Taking image...")
-# Take the actual image we want to keep
-camera_capture = getImage()
-file = "/home/root/Edison/testPic.jpeg"
-# A nice feature of the imwrite method is that it will automatically choose the
-# correct format based on the file extension you provide. Convenient!
-cv2.imwrite(file, camera_capture)
-# You'll want to release the camera, otherwise you won't be able to create a new
-# capture object until your script exits
-del(camera)
-    
-    
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
+    # Display the resulting frame
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# When everything done, release the capture
+cap.release()
+cv2.destroyAllWindows()
