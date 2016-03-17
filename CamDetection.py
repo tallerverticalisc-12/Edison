@@ -1,7 +1,7 @@
 import cv2
 
 camera_port = 0
-rap_frames = 30
+ramp_frames = 30
 
 camera = cv2.VideoCapture(camera_port)
 
