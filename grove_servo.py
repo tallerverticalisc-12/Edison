@@ -1,6 +1,6 @@
-import pyupm_servo as servo
+import pyupm_servo as Servo
 
-servo = new servo.ES08A(2)
+servo = new Servo.ES08A(2)
 
 servo.setAngle(90)
 print "angle set at 90"
