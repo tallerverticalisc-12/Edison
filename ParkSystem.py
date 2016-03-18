@@ -57,7 +57,6 @@ def parkInfo():
     lcdDisplay.clear()
 
 while True:
-    liftPen()
     parkInfo()
     
 
