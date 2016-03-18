@@ -1,5 +1,6 @@
 import requests
 import time
+import json
 import pyupm_grove as grove
 import pyupm_i2clcd as lcd
 import pyupm_servo as servo
@@ -22,6 +23,8 @@ dispPlaces = 20
 def requestPlace():
     r = requests.get('http://45.40.137.37:88/bestZone')
     print (r.text)
+    parsedJSON = r.loads(r)
+    print(parsedJSON['zone'])
 
 #Request to the server that has the information about the parking zones
 def updateInfo(info):
