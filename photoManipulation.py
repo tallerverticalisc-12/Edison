@@ -1,6 +1,5 @@
 from PIL import Image
 from numpy import *
-from pylab import *
 import cv2
 
 original = cv2.imread('test_imageV2.jpg')
