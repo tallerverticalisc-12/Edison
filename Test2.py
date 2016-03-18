@@ -17,8 +17,8 @@ imgThreshold = cv2.adaptiveThreshold(imgToAnalyze, 255, cv2.ADAPTIVE_THRESH_GAUS
 #text = image_file_to_string(image_file, graceful_errors=True)
 #print "=====output=======\n", text
 
-cv2.imwrite('imgConverted.jpg', imgThreshold)
-imgFile = 'imgConverted.jpg'
+cv2.imwrite('imgConverted.tif', imgThreshold)
+imgFile = 'imgConverted.tif'
 imgFinal = Image.open(imgFile)
 #text = image_to_string(imgFinal)
 #text = image_file_to_string(imgFile)
