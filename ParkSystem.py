@@ -41,6 +41,8 @@ def parkInfo():
     global touchCounter
     global buttonCounter
     
+    lcdDisplay.write('Welcome!!!')
+    
     if touchSensor.isPressed():
         if dispPlaces > 0:
             dispPlaces += 1
