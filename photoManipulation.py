@@ -1,5 +1,5 @@
 from PIL import Image
-from pytesser.pytesser import *
+from pytesser import *
 
 original = cv2.imread("test_imageV2.png")
 
