@@ -19,7 +19,7 @@ cv2.imwrite('test_imageV2_gray.jpg', final)
 #text = image_file_to_string(image_file, graceful_errors=True)
 #print "=====output=======\n", text
 
-img = Image.open('')
+img = Image.open('test_imageV2_gray.jpg')
 cv2.imwrite('final.tiff', img)
 im = Image.open('final.tiff')
 text = pytesseract.image_to_string(im)
