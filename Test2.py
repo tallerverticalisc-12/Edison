@@ -3,4 +3,5 @@ from PIL import Image
 from pytesseract import *
 
 imgToAnalyze = cv2.imread('imgToAnalyze.jpg')
-imgGrayScale = cv2.cvtColor(imgToAnalyze, gray, CV_RGB2GRAY)
+imgToAnalyze = cv2.medianBlur(imgToAnalyze, 5)
+thresh1 = cv2.threshold(imgToAnalyze,127,255,cv2.THRESH_BINARY)
