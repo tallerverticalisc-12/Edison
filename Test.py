@@ -1,4 +1,2 @@
-from pytesser import * 
-im = Image.open('phototest.tif') 
-text = image_to_string(im) 
-print text
+from pytesseract import image_to_string
+print image_to_string(Image.open('phototest.tif'))
