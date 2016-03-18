@@ -2,7 +2,7 @@ import cv2
 from PIL import Image
 from pytesser import *
 
-original = c2.cv.LoadImage("test_imageV2.jpg")
+original = cv2.cv.LoadImage("test_imageV2.jpg")
 
 resize = cv2.cv.CreateMat(original.rows/ 10, original.cols / 10, original.type) 
 
