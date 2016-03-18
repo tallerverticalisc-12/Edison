@@ -6,7 +6,7 @@ import pyupm_grove as grove
 gServo = servo.ES08A(5)
 light_sensor = grove.GroveLight(0)
 
-while(true):
+while True:
 	if(light_sensor.value() <= 2):
 		gServo.setAngle(90)
 	else:
