@@ -42,7 +42,7 @@ def parkInfo():
     global touchCounter
     global buttonCounter
 
-    lcdDisplay.write('Disp parks: ' + zone)
+    lcdDisplay.write('Disp parks: ' + str(zone))
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
