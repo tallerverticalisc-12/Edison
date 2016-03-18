@@ -34,6 +34,7 @@ def updateInfo(info):
 
 #Updates if a car leaves or enters to a parking zone    
 def parkInfo():
+    global parsedJSON
     global dispPlaces
     global touchCounter
     global buttonCounter
