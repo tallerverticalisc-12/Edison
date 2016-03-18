@@ -18,8 +18,10 @@ touchCounter = 0
 buttonCounter = 0
 
 dispPlaces = 20
-global hola
-hola = "hola"
+r = requests.get('http://45.40.137.37:88/bestZone')
+parsedJSON = json.loads[r.text]
+global zone
+zone =  parsedJSON['zone']
 
 
 #Requests the best place to parking
@@ -40,7 +42,7 @@ def parkInfo():
     global touchCounter
     global buttonCounter
 
-    lcdDisplay.write('Disp parks: ' + hola)
+    lcdDisplay.write('Disp parks: ' + zone)
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
