@@ -16,7 +16,7 @@ lcdDisplay.setCursor(0,0)
 touchCounter = 0
 buttonCounter = 0
 
-dispPlaces = 10
+dispPlaces = 20
 
 def updateInfo(info):
     global dispPlaces
@@ -30,28 +30,31 @@ def parkInfo():
     global buttonCounter
 
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
-    if(light_sensor.value() <= 2):
-        gServo.setAngle(90)
-        time.sleep(3)
-    else:
-        gServo.setAngle(0)
+#    if(light_sensor.value() <= 2):
+#        gServo.setAngle(90)
+
+#        print "hey you"
+#        time.sleep(3)
+#    else:
+#        gServo.setAngle(0)
     
     if touchSensor.isPressed():
-        if dispPlaces < 20:
-            disPlaces += 1
-            updateInfo(0)
+        touchCounter += 1
+        if touchCounter == 2:
+            if dispPlaces > 0:
+                dispPlaces -= 1
+                touchCounter = 0
+                updateInfo(0)
                 
     if button.value() == 1:
-        if dispPlaces > 0:
-            dispPlaces += 1
-            updateInfo(1)
-        
+        buttonCounter += 1
+        if buttonCounter == 2:
+            if dispPlaces < 20:
+                dispPlaces += 1
+                buttonCounter = 0
+                updateInfo(1)
     time.sleep(0.1)
     lcdDisplay.clear()
-
-
- 
-
 
 while True:
     parkInfo()
