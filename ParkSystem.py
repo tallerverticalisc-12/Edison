@@ -18,15 +18,6 @@ buttonCounter = 0
 
 dispPlaces = 20
 
-def liftPen():
-    if(light_sensor.value() <= 2):
-        gServo.setAngle(90)
-
-        print "hey you"
-        time.sleep(3)
-    else:
-        gServo.setAngle(0)
-
 def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
@@ -37,8 +28,16 @@ def parkInfo():
     global dispPlaces
     global touchCounter
     global buttonCounter
-    
+
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
+    if(light_sensor.value() <= 2):
+        gServo.setAngle(90)
+
+        print "hey you"
+        time.sleep(3)
+    else:
+        gServo.setAngle(0)
+    
     if touchSensor.isPressed():
         touchCounter += 1
         if touchCounter == 2:
