@@ -39,7 +39,6 @@ def parkInfo():
     global dispPlaces
     global touchCounter
     global buttonCounter
-    print zone
 
     lcdDisplay.write('Disp parks: ' + hola)
     
