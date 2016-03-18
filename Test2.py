@@ -1,6 +1,6 @@
-import Image
-from pytesseract import *
-photo = Image.open('phototest.tif')
-photo.load()
-photo.split()
-print image_to_string(photo)
+from PIL import *
+import pytesseract
+
+image = _get_image('phototest.tif')
+image.filter(ImageFilter.SHARPEN)
+return pytesseract.image_to_string(image)
