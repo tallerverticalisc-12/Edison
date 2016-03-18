@@ -18,8 +18,8 @@ final = cv2.threshold(img2Gray, 128, 255, cv2.THRESH_BINARY)
 #print "=====output=======\n", text
 
 img = final
-img.save('test_imageV2.tiff')
-im = Image.open(img)
+cv2.imwrite('final.tiff', img)
+im = Image.open('final.tiff')
 text = image_to_string(im)
 text = image_file_to_string(image_file)
 text = image_file_to_string(image_file, graceful_errors=True)
