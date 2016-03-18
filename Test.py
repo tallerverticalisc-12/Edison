@@ -1,10 +1,4 @@
-try:
-    import Image
-except ImportError:
-    from PIL import Image
-import pytesseract
-
-img = Image.open('test_imageV2.jpg')
-img.load()
-i = pytesseract.image_to_string(img)
-print i
+from pytesser.pytesser import *
+im = Image.open('phototest.tif')
+text = image_to_string(im)
+print text
