@@ -1,7 +1,7 @@
-from pytesseract import *
 from PIL import Image
 from numpy import *
 import cv2
+import pytesseract
 
 original = cv2.imread('test_imageV2.jpg', 0)
 original = cv2.medianBlur(original, 5)
