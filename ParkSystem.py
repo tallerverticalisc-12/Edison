@@ -6,8 +6,8 @@ import pyupm_servo as servo
 import pyupm_ttp223 as ttp223
 
 light_sensor = grove.GroveLight(0)
-touchSensor = ttp223.TTP223(2)
-button = grove.GroveButton(3)
+touchSensor = ttp223.TTP223(3)
+button = grove.GroveButton(2)
 gServo = servo.ES08A(5)
 
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
