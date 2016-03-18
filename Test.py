@@ -1,5 +1,9 @@
+try:
+    import Image
+except ImportError:
+    from PIL import Image
+
 import pytesseract
-from PIL import Image 
 
 imageTest = Image.open('Letters.jpg')
 imageTest.load()
