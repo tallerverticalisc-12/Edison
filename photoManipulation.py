@@ -1,7 +1,7 @@
-#Fix
 import cv2
 from PIL import Image
 from pytesser import *
+import numpy as np
 
 original = cv2.imread("test_imageV2.jpg")
 
