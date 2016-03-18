@@ -1,5 +1,6 @@
 import cv2
 from PIL import Image
+import numpy as np
 from pytesseract import *
 
 imgToAnalyze = cv2.imread('imgToAnalyze.jpg')
