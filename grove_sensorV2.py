@@ -23,3 +23,4 @@ while True:
 #    time.sleep(1)
 # Delete the servo object
 del gServo
+del light_sensor
