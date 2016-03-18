@@ -21,6 +21,7 @@ dispPlaces = 20
 #Requests the best place to parking
 def requestPlace():
     r = requests.get('http://45.40.137.37:88/bestZone')
+    print (r.text)
 
 #Request to the server that has the information about the parking zones
 def updateInfo(info):
@@ -46,7 +47,6 @@ def parkInfo():
             dispPlaces -= 1
             updateInfo(0)
             requestPlace()
-            print (r.text)
             
     time.sleep(0.1)
     lcdDisplay.clear()
