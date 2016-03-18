@@ -1,4 +1,4 @@
-from pytesser.pytesser import *
+from pytesser import *
 from PIL import Image
 from numpy import *
 import cv2
