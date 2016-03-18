@@ -5,7 +5,7 @@ import pyupm_i2clcd as lcd
 import pyupm_servo as servo
 import pyupm_ttp223 as ttp223
 
-light_sensor = grove.GroveLight(0)
+#light_sensor = grove.GroveLight(0)
 touchSensor = ttp223.TTP223(2)
 button = grove.GroveButton(3)
 gServo = servo.ES08A(5)
@@ -18,12 +18,15 @@ buttonCounter = 0
 
 dispPlaces = 20
 
+
+#Request to the server that has the information about the parking zones
 def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
     print (s.text)
     print dispPlaces
-    
+
+#Updates if a car leaves or enters to a parking zone    
 def parkInfo():
     global dispPlaces
     global touchCounter
