@@ -8,3 +8,4 @@ photo.split()
 print image_to_string(Image.open(image)
 #Save
 #Save 
+#Save
