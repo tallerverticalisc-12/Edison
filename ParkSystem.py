@@ -53,7 +53,7 @@ def parkInfo():
             updateInfo(0)
             requestPlace()
             
-    time.sleep(0.1)
+    time.sleep(1)
     lcdDisplay.clear()
 
 while True:
