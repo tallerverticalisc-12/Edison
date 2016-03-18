@@ -6,7 +6,7 @@ original = cv2.imread('test_imageV2.jpg')
 
 gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
 
-cv2.imwrite('test_imageV2_gray.jpg')
+cv2.imwrite('test_imageV2_gray.jpg', original)
 cv2.threshold(img2Gray, binary_image,128,255, CV_THRESH_OTSU)
 
 img = Image.open('test_imageV2_gray.jpg')
