@@ -38,7 +38,7 @@ def parkInfo():
     global touchCounter
     global buttonCounter
 
-    lcdDisplay.write('Disp parks: ' + str(dispPlaces))
+    lcdDisplay.write('Go to ', parsedJSON['zone'])
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
