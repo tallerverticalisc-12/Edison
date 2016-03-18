@@ -1,4 +1,4 @@
-from pytesseract.pytesser import *
+import pytesseract
 from PIL import Image
 from numpy import *
 import cv2
