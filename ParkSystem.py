@@ -19,6 +19,10 @@ buttonCounter = 0
 
 dispPlaces = 20
 global zone
+zone = parsedJSON['zone']
+global hola
+hola = "hola"
+
 
 #Requests the best place to parking
 def requestPlace():
@@ -34,13 +38,12 @@ def updateInfo(info):
 
 #Updates if a car leaves or enters to a parking zone    
 def parkInfo():
-    global zone
     global dispPlaces
     global touchCounter
     global buttonCounter
-    zone = parsedJSON['zone']
+    print zone
 
-    lcdDisplay.write('Disp parks: ' + zone)
+    lcdDisplay.write('Disp parks: ' + hola)
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
