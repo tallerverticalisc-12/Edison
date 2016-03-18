@@ -1,13 +1,11 @@
-import cv
 import cv2
 import numpy as np
-from PIL import Image
-from PIL import ImageFilter
-from pytesseract import *
 
-originalPic = cv.LoadImageM("picToAnalyze.jpg") 
+imgToAnalyze = cv2.imread('imgToAnalyze.jpg', 0)
+imgToAnalyze = cv2.medianBlur(imgToAnalyze, 5)
 
-resize = cv.CreateMat(originalPic.rows/ 10, originalPic.cols / 10, originalPic.type) 
+imgConverted = cv2.adaptiveThreshold(imgToAnalyze, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
 
-cv.Resize(originalPic, resize)
-th3 = cv2.adaptiveThreshold(originalPic,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
+cv2.imgwrite('imgConverted.jpg', imgConverted)
+
+
