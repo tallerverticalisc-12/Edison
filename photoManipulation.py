@@ -21,8 +21,8 @@ cv2.imwrite('test_imageV2.tif', final)
 image_file = 'test_imageV2.tif'
 im = Image.open(image_file)
 im.load()
-print pytesseract.image_to_string(Image.open('test_imageV2.jpg'))
-#text = image_to_string(im)
+im.split()
+text = image_to_string(im)
 #text = image_file_to_string(image_file)
 #text = image_file_to_string(image_file, graceful_errors=True)
 #print "=====output=======\n", text
