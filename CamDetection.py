@@ -2,9 +2,12 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture(0)
+tempFrames = 10
 
-ret, img = cap.read()
+for i in range(0, tempFrames):
+	ret, img = cap.read()	
 
-cv2.imwrite("test_imageV2.png", img)
+if ret:
+	cv2.imwrite("test_imageV2.png", img)
 
 cap.release()
