@@ -9,6 +9,7 @@ light_sensor = grove.GroveLight(0)
 while True:
 	if(light_sensor.value() <= 2):
 		gServo.setAngle(90)
+		time.sleep(3)
 	else:
 		gServo.setAngle(0)
 
