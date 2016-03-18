@@ -1,13 +1,12 @@
-import cv2
 import cv
 from PIL import Image
 from pytesser import *
 
-original = cv2.cv.LoadImage("test_imageV2.jpg")
+original = cv.LoadImage("test_imageV2.jpg")
 
-img2Gray = cv2.CvtColor(original,gray,CV_RGB2GRAY)
+img2Gray = CvtColor(original,gray,CV_RGB2GRAY)
 
-cv2.cv.Threshold(img2Gray, binary_image,128,255, CV_THRESH_OTSU)
+cv.Threshold(img2Gray, binary_image,128,255, CV_THRESH_OTSU)
 
 img = Image.open('test_imageV2.jpg')
 img.save('test_imageV2.tiff')
