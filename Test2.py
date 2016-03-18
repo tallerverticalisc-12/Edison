@@ -4,7 +4,7 @@ import cv2
 from pytesseract import *
 
 imgToAnalyze = cv2.imread('imgToAnalyze.jpg', 0)
-imgToAnalyze = cv2.medianBlur(imgToAnalyze, 5)
+imgToAnalyze = cv2.medianBlur(imgToAnalyzeFix, 5)
 
 #img2Gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
 
@@ -20,7 +20,7 @@ imgThreshold = cv2.adaptiveThreshold(imgToAnalyze, 255, cv2.ADAPTIVE_THRESH_GAUS
 cv2.imwrite('imgConverted.tif', imgThreshold)
 imgFile = 'imgConverted.tif'
 imgFinal = Image.open(imgFile).load()
-text = image_to_string(imgFinal)
-text = image_file_to_string(imgFile)
-text = image_file_to_string(imgFile, graceful_errors=True)
-print "=====output=======\n", text
+#text = image_to_string(imgFinal)
+#text = image_file_to_string(imgFile)
+#text = image_file_to_string(imgFile, graceful_errors=True)
+#print "=====output=======\n", text
