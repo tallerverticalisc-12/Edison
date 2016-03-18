@@ -6,8 +6,8 @@ import pyupm_servo as servo
 import pyupm_ttp223 as ttp223
 
 light_sensor = grove.GroveLight(0)
-touchSensor = ttp223.TTP223(3)
-button = grove.GroveButton(2)
+touchSensor = ttp223.TTP223(2)
+button = grove.GroveButton(3)
 gServo = servo.ES08A(5)
 
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
@@ -38,20 +38,20 @@ def parkInfo():
     else:
         gServo.setAngle(0)
     
-    if touchSensor.isPressed():
-        touchCounter += 1
-        if touchCounter == 2:
-            if dispPlaces > 0:
-                dispPlaces -= 1
-                touchCounter = 0
-                updateInfo(0)
-                
-    if button.value() == 1:
+    if button.Value():
         buttonCounter += 1
         if buttonCounter == 2:
+            if dispPlaces > 0:
+                dispPlaces -= 1
+                buttonCounter = 0
+                updateInfo(0)
+                
+    if touchSensor.isPressed() == 1:
+        touchCounter += 1
+        if touchCounter == 2:
             if dispPlaces < 20:
                 dispPlaces += 1
-                buttonCounter = 0
+                touchCounter = 0
                 updateInfo(1)
     time.sleep(0.1)
     lcdDisplay.clear()
