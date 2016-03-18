@@ -4,3 +4,4 @@ text = image_to_string(im)
 print text
 #Fix
 #Fix
+#Fix
