@@ -1,7 +1,3 @@
-from pytesser import *
-im = Image.open('phototest.tif')
-text = image_to_string(im)
-print text
-#Fix
-#Fix
-#Fix
+import pytesseract
+from PIL import image *
+print pytesseract.image_to_string(Image.open('Letters.jpg'))
