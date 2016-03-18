@@ -1,11 +1,9 @@
 import Image
-from pytesseract import image_to_string
-
+from pytesseract import *
 photo = Image.open('phototest.tif')
-#photo.load()
-#photo.split()
-
-print image_to_string(Image.open(image)
+photo.load()
+photo.split()
+print image_to_string(Image.open(image))
 #Save
 #Save 
 #Save
