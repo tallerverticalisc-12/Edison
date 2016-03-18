@@ -22,7 +22,7 @@ final = cv2.adaptiveThreshold(original, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2
 img = final
 cv2.imwrite('final.tiff', img)
 im = Image.open('final.tiff')
-text = image_to_string(im)
-text = image_file_to_string(image_file)
-text = image_file_to_string(image_file, graceful_errors=True)
+text = pytesseract.image_to_string(im)
+text = pytesseract.image_file_to_string(image_file)
+text = pytesseract.image_file_to_string(image_file, graceful_errors=True)
 print "=====output=======\n", text
