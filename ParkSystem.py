@@ -39,14 +39,14 @@ def parkInfo():
         gServo.setAngle(0)
     
     if touchSensor.isPressed():
-    if dispPlaces < 20:
-        disPlaces += 1
-        updateInfo(0)
+        if dispPlaces < 20:
+            disPlaces += 1
+            updateInfo(0)
                 
     if button.value() == 1:
-    if dispPlaces > 0:
-        dispPlaces += 1
-        updateInfo(1)
+        if dispPlaces > 0:
+            dispPlaces += 1
+            updateInfo(1)
         
     time.sleep(0.1)
     lcdDisplay.clear()
