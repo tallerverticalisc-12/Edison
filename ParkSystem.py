@@ -35,11 +35,12 @@ def updateInfo(info):
 
 #Updates if a car leaves or enters to a parking zone    
 def parkInfo():
+    global zone
     global dispPlaces
     global touchCounter
     global buttonCounter
 
-    lcdDisplay.write('Go to ', )
+    lcdDisplay.write('Go to ', zone)
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
