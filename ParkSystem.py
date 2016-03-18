@@ -19,7 +19,7 @@ buttonCounter = 0
 
 dispPlaces = 20
 r = requests.get('http://45.40.137.37:88/bestZone')
-parsedJSON = json.loads[r.text]
+parsedJSON = json.loads(r.text)
 global zone
 zone =  parsedJSON['zone']
 
