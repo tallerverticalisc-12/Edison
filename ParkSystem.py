@@ -22,7 +22,6 @@ global zone
 
 #Requests the best place to parking
 def requestPlace():
-    global zone
     r = requests.get('http://45.40.137.37:88/bestZone')
     print (r.text)
     parsedJSON = json.loads(r.text)
