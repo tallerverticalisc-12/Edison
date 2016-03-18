@@ -14,4 +14,4 @@ def process_image(url):
 def _get_image(url):
     return Image.open(StringIO(requests.get(url).content))
     
-process_image('phototest.tif')
+process_image('http://www.paredro.com/wp-content/uploads/2013/04/placa-2013.jpg')
