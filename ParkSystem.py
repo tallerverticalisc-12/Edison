@@ -18,8 +18,6 @@ touchCounter = 0
 buttonCounter = 0
 
 dispPlaces = 20
-global zone
-zone = parsedJSON['zone']
 global hola
 hola = "hola"
 
