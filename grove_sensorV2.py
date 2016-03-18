@@ -1,6 +1,6 @@
 import time
 import pyupm_servo as servo
- import pyupm_grove as grove
+import pyupm_grove as grove
 
 # Create the servo object using D5
 gServo = servo.ES08A(5)
