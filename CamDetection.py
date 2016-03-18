@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 cap = cv2.VideoCapture(0)
-tempFrames = 10
+tempFrames = 30
 
 for i in range(0, tempFrames):
 	ret, img = cap.read()	
