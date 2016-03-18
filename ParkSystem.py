@@ -51,9 +51,9 @@ def parkInfo():
             dispPlaces -= 1
             lcdDisplay.write('Go to: ' + str(zone))
             updateInfo(0)
+            time.sleep(5)
             requestPlace()
             
-    time.sleep(5)
     lcdDisplay.clear()
 
 while True:
