@@ -1,4 +1,5 @@
 import cv2
+import cv
 from PIL import Image
 from pytesser import *
 
