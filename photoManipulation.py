@@ -2,12 +2,13 @@ from PIL import Image
 from numpy import *
 import cv2
 
-original = cv2.imread('test_imageV2.jpg')
+original = cv2.imread('test_imageV2.jpg', 0)
+original = cv2.medianBlur(original, 5)
 
-img2Gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
+#img2Gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
 
-cv2.imwrite('test_imageV2_gray.jpg', original)
-final = cv2.threshold(img2Gray, 128, 255, cv2.THRESH_BINARY)
+final = cv2.adaptiveThreshold(original, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+#cv2.imwrite('test_imageV2_gray.jpg', img2Gray)
 
 #img = Image.open('test_imageV2_gray.jpg')
 #img.save('test_imageV2.tiff')
