@@ -1,11 +1,10 @@
 import cv2
-import numpy as np
+from PIL import Image
+from pytesseract import *
 
-imgToAnalyze = cv2.imread('imgToAnalyze.jpg', 0)
-imgToAnalyze = cv2.medianBlur(imgToAnalyze, 5)
+imgToAnalyze = cv.LoadImageM('imgToAnalyze.jpg')
 
-imgConverted = cv2.adaptiveThreshold(imgToAnalyze, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+imgGrayScale = cv2.cvtColor(imgToAnalyze, cv2.COLOR_BGR2GRAY)
+cv2.imwrite('imgGrayScale.jpg', imgGrayScale)
 
-cv2.imgwrite('imgConverted.jpg', imgConverted)
-
-
+imgThreshold = cv2.adaptiveThreshold(imgGrayScale,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
