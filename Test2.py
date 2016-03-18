@@ -4,7 +4,7 @@ import cv2
 from pytesseract import *
 
 imgToAnalyze = cv2.imread('imgToAnalyze.jpg', 0)
-imgToAnalyze = cv2.medianBlur(original, 5)
+imgToAnalyze = cv2.medianBlur(imgToAnalyze, 5)
 
 #img2Gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
 
