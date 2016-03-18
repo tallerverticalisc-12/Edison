@@ -1,8 +1,4 @@
-import pytesseract as pt
-import Image as im
-from PIL import Image as PILim
-
-
-
-print pt.image_to_string(im.open("Letters.jpg").split())
-print pt.image_to_string(PILim.open("Letters.jpg"))
+import Image
+from tesseract import image_to_string
+print image_to_string(Image.open('test.png'))
+print image_to_string(Image.open('test-european.jpg'), lang='fra')
