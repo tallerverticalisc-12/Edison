@@ -1,10 +1,10 @@
 import pytesseract
 import requests
+import cv2
+import numpy as np
 from PIL import Image
 from PIL import ImageFilter
 from StringIO import StringIO
-import numpy as np
-import cv2
 
 cap = cv2.VideoCapture(0)
 tempFrames = 15
@@ -17,10 +17,11 @@ if ret:
 
 cap.release()
 
-def getImage():
+def convertImage():
     imgToAnalyze = Image.open('imgToAnalyze.jpg')
+    imgToAnalyze = cv2.medianBlur(imgToAnalyze, 5)
     imgToAnalyze.filter(ImageFilter.SHARPEN)
     
     print pytesseract.image_to_string(imgToAnalyze)
     
-getImage()
+convertImage()
