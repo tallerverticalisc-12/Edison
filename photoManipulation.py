@@ -20,6 +20,7 @@ final = cv2.adaptiveThreshold(original, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2
 cv2.imwrite('test_imageV2.tif', final)
 image_file = 'test_imageV2.tif'
 im = Image.open(image_file)
+im.load()
 print pytesseract.image_to_string(Image.open('test_imageV2.jpg'))
 #text = image_to_string(im)
 #text = image_file_to_string(image_file)
