@@ -27,7 +27,6 @@ def updateInfo(info):
     global dispPlaces
     s = requests.post('http://45.40.137.37:88/sensor', {"zone":1,"parkID":1,"status":info})
     print (s.text)
-    print dispPlaces
 
 #Updates if a car leaves or enters to a parking zone    
 def parkInfo():
@@ -47,6 +46,7 @@ def parkInfo():
             dispPlaces -= 1
             updateInfo(0)
             requestPlace()
+            print (r.text)
             
     time.sleep(0.1)
     lcdDisplay.clear()
