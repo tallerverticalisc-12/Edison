@@ -1,4 +1,4 @@
-from PIL import image
+from PIL import Image
 from pytesseract.pytesser import *
 
 original = cv2.imread("test_imageV2.png")
