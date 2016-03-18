@@ -20,7 +20,7 @@ imgThreshold = cv2.adaptiveThreshold(original, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN
 cv2.imwrite('imgConverted.tif', imgThreshold)
 imgFile = 'imgConverted.tif'
 imgFinal = Image.open(imgFile).load()
-text = image_to_string(im)
+text = image_to_string(imgFinal)
 text = image_file_to_string(imgFile)
 text = image_file_to_string(imgFile, graceful_errors=True)
 print "=====output=======\n", text
