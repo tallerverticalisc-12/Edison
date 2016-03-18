@@ -32,8 +32,6 @@ def parkInfo():
     lcdDisplay.write('Disp parks: ' + str(dispPlaces))
     if(light_sensor.value() <= 2):
         gServo.setAngle(90)
-
-        print "hey you"
         time.sleep(3)
     else:
         gServo.setAngle(0)
