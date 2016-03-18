@@ -1,17 +1,13 @@
-import pytesseract
-import requests
+import cv
+import cv2
 from PIL import Image
 from PIL import ImageFilter
-from StringIO import StringIO
+from pytesseract import *
 
+originalPic = cv.LoadImageM("picToAnalyze.jpg") 
 
-def process_image(url):
-    image = _get_image(url)
-    image.filter(ImageFilter.SHARPEN)
-    print pytesseract.image_to_string(image)
+resize = cv.CreateMat(originalPic.rows/ 10, originalPic.cols / 10, originalPic.type) 
 
-
-def _get_image(url):
-    return Image.open(StringIO(requests.get(url).content))
-    
-process_image('http://www.diariodemexico.com.mx/wp-content/uploads/2016/01/placa.jpg')
+cv.Resize(originalPic, resize)
+CvtColor(originalPic,gray,CV_RGB2GRAY)
+cvThreshold(image, binary_image,128,255,CV_THRESH_OTSU)
