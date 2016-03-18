@@ -9,7 +9,7 @@ original = cv2.medianBlur(original, 5)
 #img2Gray = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
 
 final = cv2.adaptiveThreshold(original, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
-#cv2.imwrite('test_imageV2_gray.jpg', img2Gray)
+cv2.imwrite('test_imageV2_gray.jpg', final)
 
 #img = Image.open('test_imageV2_gray.jpg')
 #img.save('test_imageV2.tiff')
@@ -19,7 +19,7 @@ final = cv2.adaptiveThreshold(original, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2
 #text = image_file_to_string(image_file, graceful_errors=True)
 #print "=====output=======\n", text
 
-img = final
+img = Image.open('')
 cv2.imwrite('final.tiff', img)
 im = Image.open('final.tiff')
 text = pytesseract.image_to_string(im)
