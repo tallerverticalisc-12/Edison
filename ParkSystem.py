@@ -20,7 +20,7 @@ dispPlaces = 20
 
 #Requests the best place to parking
 def requestPlace():
-    r = request.get('http://45.40.137.37:88/bestZone')
+    r = requests.get('http://45.40.137.37:88/bestZone')
 
 #Request to the server that has the information about the parking zones
 def updateInfo(info):
