@@ -21,12 +21,10 @@ dispPlaces = 20
 
 #Requests the best place to parking
 def requestPlace():
-    global zone
+    global parsedJSON
     r = requests.get('http://45.40.137.37:88/bestZone')
     print (r.text)
     parsedJSON = json.loads(r.text)
-    zone = parsedJSON['zone']
-    print zone
 
 #Request to the server that has the information about the parking zones
 def updateInfo(info):
@@ -36,10 +34,12 @@ def updateInfo(info):
 
 #Updates if a car leaves or enters to a parking zone    
 def parkInfo():
-    global zone
+    global r
+    global parsedJSON
     global dispPlaces
     global touchCounter
     global buttonCounter
+    zone = parsedJSON['zone']
 
     lcdDisplay.write('Go to ', zone)
     
