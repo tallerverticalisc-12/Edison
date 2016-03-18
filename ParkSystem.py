@@ -13,6 +13,8 @@ gServo = servo.ES08A(5)
 
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
+lcdDisplay.write('Welcome!!!'))
+
 
 touchCounter = 0
 buttonCounter = 0
@@ -22,7 +24,6 @@ r = requests.get('http://45.40.137.37:88/bestZone')
 parsedJSON = json.loads(r.text)
 global zone
 zone =  parsedJSON['zone']
-
 
 #Requests the best place to parking
 def requestPlace():
@@ -42,7 +43,7 @@ def parkInfo():
     global touchCounter
     global buttonCounter
 
-    lcdDisplay.write('Disp parks: ' + str(zone))
+    lcdDisplay.write('Go to: ' + str(zone))
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
