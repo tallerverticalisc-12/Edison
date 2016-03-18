@@ -8,6 +8,6 @@ for i in range(0, tempFrames):
 	ret, img = cap.read()	
 
 if ret:
-	cv2.imwrite("test_imageV2.png", img)
+	cv2.imwrite("test_imageV2.jpg", img)
 
 cap.release()
