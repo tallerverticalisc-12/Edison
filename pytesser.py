@@ -1,95 +1,72 @@
-try:
-    import cv2.cv as cv
-    OPENCV_AVAILABLE = True
-except ImportError:
-    OPENCV_AVAILABLE = False
+"""OCR in Python using the Tesseract engine from Google
+http://code.google.com/p/pytesser/
+by Michael J.T. O'Kelly
+V 0.0.1, 3/10/07"""
 
-try:
-    import cv2
-    OPENCV2_AVAILABLE = True
-except ImportError:
-    OPENCV2_AVAILABLE = False
+import Image
+import subprocess
 
-from subprocess import Popen, PIPE
-import os
+import util
+import errors
 
-PROG_NAME = 'tesseract'
-TEMP_IMAGE = 'tmp.bmp'
-TEMP_FILE = 'tmp'
+tesseract_exe_name = 'tesseract' # Name of executable to be called at command line
+scratch_image_name = "temp.bmp" # This file must be .bmp or other Tesseract-compatible format
+scratch_text_name_root = "temp" # Leave out the .txt extension
+cleanup_scratch_flag = True  # Temporary files cleaned up after OCR operation
 
-#All the PSM arguments as a variable name (avoid having to know them)
-PSM_OSD_ONLY = 0
-PSM_SEG_AND_OSD = 1
-PSM_SEG_ONLY = 2
-PSM_AUTO = 3
-PSM_SINGLE_COLUMN = 4
-PSM_VERTICAL_ALIGN = 5
-PSM_UNIFORM_BLOCK = 6
-PSM_SINGLE_LINE = 7
-PSM_SINGLE_WORD = 8
-PSM_SINGLE_WORD_CIRCLE = 9
-PSM_SINGLE_CHAR = 10
+def call_tesseract(input_filename, output_filename):
+	"""Calls external tesseract.exe on input file (restrictions on types),
+	outputting output_filename+'txt'"""
+	args = [tesseract_exe_name, input_filename, output_filename]
+	proc = subprocess.Popen(args)
+	retcode = proc.wait()
+	if retcode!=0:
+		errors.check_for_errors()
 
-class TesseractException(Exception): #Raised when tesseract does not return 0
-    pass
+def image_to_string(im, cleanup = cleanup_scratch_flag):
+	"""Converts im to file, applies tesseract, and fetches resulting text.
+	If cleanup=True, delete scratch files after operation."""
+	try:
+		util.image_to_scratch(im, scratch_image_name)
+		call_tesseract(scratch_image_name, scratch_text_name_root)
+		text = util.retrieve_text(scratch_text_name_root)
+	finally:
+		if cleanup:
+			util.perform_cleanup(scratch_image_name, scratch_text_name_root)
+	return text
 
-class TesseractNotFound(Exception): #When tesseract is not found in the path
-    pass
+def image_file_to_string(filename, cleanup = cleanup_scratch_flag, graceful_errors=True):
+	"""Applies tesseract to filename; or, if image is incompatible and graceful_errors=True,
+	converts to compatible format and then applies tesseract.  Fetches resulting text.
+	If cleanup=True, delete scratch files after operation."""
+	try:
+		try:
+			call_tesseract(filename, scratch_text_name_root)
+			text = util.retrieve_text(scratch_text_name_root)
+		except errors.Tesser_General_Exception:
+			if graceful_errors:
+				im = Image.open(filename)
+				text = image_to_string(im, cleanup)
+			else:
+				raise
+	finally:
+		if cleanup:
+			util.perform_cleanup(scratch_image_name, scratch_text_name_root)
+	return text
+	
 
-def check_path(): #Check if tesseract is in the path raise TesseractNotFound otherwise
-    for path in os.environ.get('PATH', '').split(':'):
-        filepath = os.path.join(path, PROG_NAME)
-        if os.path.exists(filepath) and not os.path.isdir(filepath):
-            return True
-    raise TesseractNotFound
+if __name__=='__main__':
+	im = Image.open('phototest.tif')
+	text = image_to_string(im)
+	print text
+	try:
+		text = image_file_to_string('fnord.tif', graceful_errors=False)
+	except errors.Tesser_General_Exception, value:
+		print "fnord.tif is incompatible filetype.  Try graceful_errors=True"
+		print value
+	text = image_file_to_string('fnord.tif', graceful_errors=True)
+	print "fnord.tif contents:", text
+	text = image_file_to_string('fonts_test.png', graceful_errors=True)
+	print text
 
-def process_request(input_file, output_file, lang=None, psm=None):
-    args = [PROG_NAME, input_file, output_file] #Create the arguments
-    if lang is not None:
-        args.append("-l")
-        args.append(lang)
-    if psm is not None:
-        args.append("-psm")
-        args.append(str(psm))
-    proc = Popen(args, stdout=PIPE, stderr=PIPE) #Open process
-    ret = proc.communicate() #Launch it
 
-    code = proc.returncode
-    if code != 0:
-        if code == 2:
-            raise TesseractException, "File not found"
-        if code == -11:
-            raise TesseractException, "Language code invalid: "+ret[1]
-        else:
-            raise TesseractException, ret[1]
-
-def iplimage_to_string(im, lang=None, psm=None):
-    if not OPENCV_AVAILABLE:
-        print "OpenCV not Available"
-        return -1
-    else:
-        cv.SaveImage(TEMP_IMAGE, im)
-        txt = image_to_string(TEMP_IMAGE, lang, psm)
-        os.remove(TEMP_IMAGE)
-        return txt
-
-def image_to_string(file,lang=None, psm=None):
-    check_path() #Check if tesseract available in the path
-    process_request(file, TEMP_FILE, lang, psm) #Process command
-    f = open(TEMP_FILE+".txt","r") #Open back the file
-    txt = f.read()
-    os.remove(TEMP_FILE+".txt")
-    return txt
-
-def mat_to_string(im, lang=None, psm=None):
-    if not OPENCV2_AVAILABLE:
-        print "cv2 is not Available"
-        return -1
-    else:
-        cv2.imwrite(TEMP_IMAGE, im)
-        txt = image_to_string(TEMP_IMAGE, lang, psm)
-        os.remove(TEMP_IMAGE)
-        return txt
-
-if __name__ =='__main__':
-    print image_to_string("image.jpg", "fra", PSM_AUTO) #Example
