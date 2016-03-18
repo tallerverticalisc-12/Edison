@@ -13,7 +13,7 @@ gServo = servo.ES08A(5)
 
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
-lcdDisplay.write('Welcome!!!'))
+lcdDisplay.write('Welcome!!!')
 
 
 touchCounter = 0
