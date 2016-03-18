@@ -50,7 +50,7 @@ def parkInfo():
         if dispPlaces > 0:
             dispPlaces -= 1
             lcdDisplay.write('Welcome!!!')
-            time.sleep.(5)
+            time.sleep(2)
             lcdDisplay.clear()
             lcdDisplay.write('Go to: ' + str(zone))
             updateInfo(0)
