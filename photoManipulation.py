@@ -21,7 +21,6 @@ def captureImage():
     
 def convertImage():
     imgToAnalyze = cv2.imread('imgToAnalyze.png', 0)
-    imgGrayScale = cv2.cvtColor(imgToAnalyze, cv2.COLOR_BGR2GRAY)
     imgThreshold = cv2.adaptiveThreshold(imgToAnalyze, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
     imgToAnalyze.filter(ImageFilter.SHARPEN)
     
