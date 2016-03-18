@@ -24,7 +24,7 @@ def requestPlace():
     r = requests.get('http://45.40.137.37:88/bestZone')
     print (r.text)
     parsedJSON = json.loads(r.text)
-    zone = parsedJSON['zone']
+    global zone = parsedJSON['zone']
     print zone
 
 #Request to the server that has the information about the parking zones
