@@ -13,8 +13,6 @@ gServo = servo.ES08A(5)
 
 lcdDisplay = lcd.Jhd1313m1(0, 0x3E, 0x62)
 lcdDisplay.setCursor(0,0)
-lcdDisplay.write('Welcome!!!')
-
 
 touchCounter = 0
 buttonCounter = 0
@@ -42,8 +40,8 @@ def parkInfo():
     global dispPlaces
     global touchCounter
     global buttonCounter
-
-    lcdDisplay.write('Go to: ' + str(zone))
+    
+    lcdDisplay.write('Welcome!!!')
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
@@ -53,6 +51,7 @@ def parkInfo():
     if button.value() == 1:
         if dispPlaces > 0:
             dispPlaces -= 1
+            lcdDisplay.write('Go to: ' + str(zone))
             updateInfo(0)
             requestPlace()
             
