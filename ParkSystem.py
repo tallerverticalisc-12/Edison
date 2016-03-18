@@ -23,8 +23,6 @@ dispPlaces = 20
 def requestPlace():
     r = requests.get('http://45.40.137.37:88/bestZone')
     print (r.text)
-    parsedJSON = json.loads(r)
-    print(parsedJSON['zone'])
 
 #Request to the server that has the information about the parking zones
 def updateInfo(info):
