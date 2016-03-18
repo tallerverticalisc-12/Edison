@@ -22,6 +22,7 @@ global zone
 
 #Requests the best place to parking
 def requestPlace():
+    global zone
     r = requests.get('http://45.40.137.37:88/bestZone')
     print (r.text)
     parsedJSON = json.loads(r.text)
@@ -35,6 +36,7 @@ def updateInfo(info):
 
 #Updates if a car leaves or enters to a parking zone    
 def parkInfo():
+    global zone
     global dispPlaces
     global touchCounter
     global buttonCounter
