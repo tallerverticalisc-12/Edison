@@ -18,7 +18,7 @@ touchCounter = 0
 buttonCounter = 0
 
 dispPlaces = 20
-hola = "hola"
+global zone
 
 #Requests the best place to parking
 def requestPlace():
@@ -39,7 +39,7 @@ def parkInfo():
     global touchCounter
     global buttonCounter
 
-    lcdDisplay.write('Go to ', hola)
+    lcdDisplay.write('Disp parks: ' + zone)
     
     if touchSensor.isPressed():
         if dispPlaces > 0:
