@@ -1,4 +1,4 @@
-import PIL import Image
+Import Image
 from pytesseract import image_to_string
 
 image = Image.open('phototest.tif')
